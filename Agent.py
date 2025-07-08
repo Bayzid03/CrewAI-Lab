@@ -28,7 +28,6 @@ llm_wrapper = LocalLLMWrapper(local_llm)
 
 # Define Agents
 from crewai import Agent
-
 researcher = Agent(
     role="Trend Researcher",
     goal="Identify a trending topic in technology today",
