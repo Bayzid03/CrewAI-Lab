@@ -32,3 +32,16 @@ class ResearchAgents:
             tools=self.tools,
             memory=True
         )
+
+    def create_industry_expert(self) -> Agent:
+        """Creates the Industry Expert agent that provides domain-specific insights."""
+        return Agent(
+            role='Industry Expert',
+            goal='Provide industry-specific insights and context to market data',
+            backstory="""You are a seasoned Industry Expert with deep knowledge of 
+            market dynamics and industry trends. You help interpret data in the 
+            context of broader market conditions.""",
+            verbose=True,
+            tools=self.tools,
+            memory=True
+        )
