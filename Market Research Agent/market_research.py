@@ -6,3 +6,15 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
+def main():
+  # Initialize Tools
+  market_tools = MarketTools()
+  tools = market_tools.create_tools()
+
+  # Initialize Agents
+  research_agents = ResearchAgents(tools)
+  research_manager = research_agents.create_research_manager()
+  data_analyst = research_agents.create_data_analyst()
+  industry_expert = reseach_agents.create_industry_expert()
+  
