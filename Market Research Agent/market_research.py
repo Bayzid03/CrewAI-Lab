@@ -18,3 +18,9 @@ def main():
   data_analyst = research_agents.create_data_analyst()
   industry_expert = reseach_agents.create_industry_expert()
   
+  # Define tasks
+  research_task = Task(
+      description="""Gather market news and stock data for the specified company.
+      Focus on recent developments, market trends, and financial performance.""",
+      agent=research_manager
+  )
