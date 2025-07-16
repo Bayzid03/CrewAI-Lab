@@ -56,3 +56,27 @@ def create_stock_plot(stock_data: pd.DataFrame, symbol: str) -> str:
     except Exception as e:
         logger.error(f"Error creating stock plot for {symbol}: {str(e)}")
         return ""
+
+def save_report(data: Dict, filename: str = 'market_research_report.json'):
+    """Save the research report to a JSON file."""
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        logger.info(f"Report saved successfully to {filename}")
+    except Exception as e:
+        logger.error(f"Error saving report to {filename}: {str(e)}")
+        raise
+
+def load_report(filename: str = 'market_research_report.json') -> Dict:
+    """Load the research report from a JSON file."""
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        logger.info(f"Report loaded successfully from {filename}")
+        return data
+    except FileNotFoundError:
+        logger.warning(f"Report file {filename} not found")
+        return {}
+    except Exception as e:
+        logger.error(f"Error loading report from {filename}: {str(e)}")
+        return {}
