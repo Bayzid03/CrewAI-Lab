@@ -24,3 +24,29 @@ def main():
       Focus on recent developments, market trends, and financial performance.""",
       agent=research_manager
   )
+  
+  analysis_task = Task(
+      description="""Analyze the collected data to identify key trends and patterns.
+      Create visualization and prepare the data for reporting. """,
+      agent = data_analyst
+  )
+
+  insight_task = Task(
+      description="""Provide industry concept and insights based on the analysis.
+      Highlights key findings and their implications.""",
+      agent = industry_expert
+  )
+
+  crew = Crew(
+      agents = [research_manager, data_analyst, industry_expert],
+      tasks = [research_task, analysis_task, insight_task],
+      verbose = True
+  )
+
+  result = crew.kickoff()
+
+  save_report(result)
+  print("Market research completed and saved to market_research_report.json")
+
+if __name__ = "__main__":
+  main()
