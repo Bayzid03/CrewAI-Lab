@@ -110,7 +110,7 @@ graph TB
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/market-research-agent.git
+git clone https://github.com/Bayzid03/market-research-agent.git
 cd market-research-agent
 
 # Create virtual environment
